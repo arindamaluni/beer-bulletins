@@ -1,18 +1,32 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, View, Text } from 'react-native';
+import {
+  ImageBackground,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 
-function WelcomeScreen(props) {
+function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground
       style={styles.background}
       source={require('../assets/bb_mobile_wp.png')}
     >
-      <View style={styles.loginButton}>
-        <Text>Login</Text>
-      </View>
-      <View style={styles.RegisterButton}>
-        <Text>Register</Text>
-      </View>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('LoginScreen');
+        }}
+      >
+        <View style={styles.loginButton}>
+          <Text>Login</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => { }}>
+        <View style={styles.RegisterButton}>
+          <Text>Register</Text>
+        </View>
+      </TouchableOpacity>
     </ImageBackground>
   );
 }
