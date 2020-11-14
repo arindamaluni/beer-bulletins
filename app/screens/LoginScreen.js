@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, Text, View, StyleSheet } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
 
 function LoginScreen(props) {
   return (
@@ -11,9 +12,15 @@ function LoginScreen(props) {
         />
         <Text style={styles.title}>Beer Bulletins</Text>
       </View>
+      <TextInput placeholder='Username' />
+      <TextInput placeholder='Password' />
     </View>
   );
 }
+
+// use fetch to fetch pc's ip address fetch('http://yourPCip:3000/users')
+//       .then(response => response.json())
+//       .then(users => console.warn(users))
 
 const styles = StyleSheet.create({
   container: {
