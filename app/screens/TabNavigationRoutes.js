@@ -1,10 +1,13 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
 
 //import all screens for tab nav
 import HomeScreen from './HomeScreen';
-
+import BottleshopScreen from './BottleshopScreen';
+import MyReviewsScreen from './MyReviewsScreen';
+import ProfileScreen from './ProfileScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,12 +24,56 @@ function homeScreenStack({ navigation }) {
       />
     </Stack.Navigator>
   );
-};
+}
 
 function TabNavigationRoutes(props) {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="homeScreenStack" component={homeScreenStack} />
+    <Tab.Navigator
+      initialRouteName="homeScreenStack"
+      tabBarOptions={{
+        activeTintColor: '#17BEBB',
+      }}
+    >
+      <Tab.Screen
+        name="homeScreenStack"
+        component={homeScreenStack}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="md-home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="BottleshopScreen"
+        component={BottleshopScreen}
+        options={{
+          tabBarLabel: 'Bottle Shop',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="md-beer" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="MyReviewsScreen"
+        component={MyReviewsScreen}
+        options={{
+          tabBarLabel: 'My Reviews',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="md-clipboard" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="md-person" color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }

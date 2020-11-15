@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, ViewComponent } from 'react-native';
 import { Input, SearchBar } from 'react-native-elements';
 
+
+
 function HomeScreen(props) {
+  const [search, setSearch] = useState('');
+
   return (
     <View>
       <SearchBar
-        placeholder="Type Here..."
-      // onChangeText={this.updateSearch}
-      // value={search}
+        placeholder="Search for a beer or brewery"
+        onChangeText={(searchText) => {
+          setSearch(searchText);
+        }}
+        value={search}
+        platform="ios"
       />
     </View>
   );
