@@ -1,8 +1,8 @@
 import React from 'react';
-import { Image, Text, View, StyleSheet } from 'react-native';
+import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
-function LoginScreen(props) {
+function LoginScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -12,8 +12,24 @@ function LoginScreen(props) {
         />
         <Text style={styles.title}>Beer Bulletins</Text>
       </View>
-      <TextInput placeholder='Username' />
-      <TextInput placeholder='Password' />
+      <TextInput style={styles.input} placeholder="Username" />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        secureTextEntry={true}
+      />
+      <TouchableOpacity
+        style={styles.submitButton}
+        onPress={() => navigation.navigate('TabNavigationRoutes')}
+      >
+        <Text style={styles.submitButtonText}>Sign in!</Text>
+      </TouchableOpacity>
+      <Text
+        style={styles.registerTextStyle}
+        onPress={() => navigation.navigate('RegisterScreen')}
+      >
+        New Here ? Register
+      </Text>
     </View>
   );
 }
@@ -37,6 +53,23 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#F6AE2D',
+  },
+  input: {
+    margin: 15,
+    height: 40,
+    borderColor: '#2F4858',
+    borderWidth: 1,
+    backgroundColor: '#DEFBFA',
+  },
+  submitButton: {
+    backgroundColor: '#F26419',
+    padding: 10,
+    margin: 15,
+    height: 40,
+  },
+  submitButtonText: {
+    color: 'white',
+    textAlign: 'center',
   },
 });
 

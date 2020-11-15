@@ -15,18 +15,14 @@ function WelcomeScreen({ navigation }) {
     >
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('LoginScreen');
+          navigation.navigate('AuthScreen');
         }}
       >
         <View style={styles.loginButton}>
-          <Text>Login</Text>
+          <Text style={styles.buttonText}>Login</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => { }}>
-        <View style={styles.RegisterButton}>
-          <Text>Register</Text>
-        </View>
-      </TouchableOpacity>
+
     </ImageBackground>
   );
 }
@@ -45,6 +41,10 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 70,
     backgroundColor: '#33658A',
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
   },
 });
 

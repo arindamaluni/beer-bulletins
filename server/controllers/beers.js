@@ -12,23 +12,9 @@ exports.getBeers = async (req, res) => {
 };
 
 exports.postBeers = async (req, res) => {
-  const beersBody = req.body;
-  console.log(beersBody);
   try {
-    const newBeers = await db.Beer.create({
-      id: beersBody.id,
-      beerId: beersBody.beerId,
-      beerName: beersBody.beerName,
-      beerLabel: beersBody.beerLabel,
-      beerAbv: beersBody.beerAbv,
-      beerIbu: beersBody.beerIbu,
-      beerDescription: beersBody.beerDescription,
-      beerStyle: beersBody.beerStyle,
-      breweryName: beersBody.breweryName,
-      breweryCountry: beersBody.breweryCountry,
-      breweryLabel: beersBody.breweryLabel,
-      breweryUrl: beersBody.breweryUrl,
-    });
+    const beersBody = req.body;
+    const newBeers = await db.Beer.bulkCreate(beersBody, { returning: true });
     res.status(201);
     res.send(newBeers);
   } catch (e) {
