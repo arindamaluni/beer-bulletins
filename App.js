@@ -12,7 +12,7 @@ import RegisterScreen from './app/screens/RegisterScreen';
 const RootStack = createStackNavigator();
 const AuthStack = createStackNavigator();
 
-function AuthScreen() {
+function AuthScreen () {
   return (
     <AuthStack.Navigator initialRouteName="LoginScreen">
       <AuthStack.Screen
