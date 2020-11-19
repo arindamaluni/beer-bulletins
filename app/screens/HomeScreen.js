@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { View, ViewComponent } from 'react-native';
-import { Input, SearchBar } from 'react-native-elements';
-
-
+import { View } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 
 function HomeScreen(props) {
   const [search, setSearch] = useState('');
@@ -11,7 +9,7 @@ function HomeScreen(props) {
     <View>
       <SearchBar
         placeholder="Search for a beer or brewery"
-        onChangeText={(searchText) => {
+        onChangeText={searchText => {
           setSearch(searchText);
         }}
         value={search}

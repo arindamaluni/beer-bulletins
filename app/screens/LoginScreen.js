@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
 function LoginScreen({ navigation }) {

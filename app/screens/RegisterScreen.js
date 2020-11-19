@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Button, Overlay } from 'react-native-elements';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
 function RegisterScreen(props) {

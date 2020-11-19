@@ -6,7 +6,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prettier": "prettier --ignore-path .gitignore --write \"**/*.(js|ts|json|tsx)\""
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",

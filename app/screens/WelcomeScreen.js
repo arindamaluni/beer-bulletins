@@ -2,9 +2,9 @@ import React from 'react';
 import {
   ImageBackground,
   StyleSheet,
-  View,
+
   Text,
-  TouchableOpacity,
+  TouchableOpacity, View
 } from 'react-native';
 
 function WelcomeScreen({ navigation }) {
@@ -22,7 +22,6 @@ function WelcomeScreen({ navigation }) {
           <Text style={styles.buttonText}>Login</Text>
         </View>
       </TouchableOpacity>
-
     </ImageBackground>
   );
 }

@@ -12,5 +12,4 @@ router.post('/beers', beer.postBeers);
 //const message = require 'controller'
 //router routes: router.get('/messages', message.getAll)
 
-
 module.exports = router;

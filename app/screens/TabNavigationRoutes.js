@@ -1,13 +1,13 @@
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
+import BottleshopScreen from './BottleshopScreen';
 //import all screens for tab nav
 import HomeScreen from './HomeScreen';
-import BottleshopScreen from './BottleshopScreen';
 import MyReviewsScreen from './MyReviewsScreen';
 import ProfileScreen from './ProfileScreen';
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
