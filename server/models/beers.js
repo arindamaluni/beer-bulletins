@@ -1,55 +1,26 @@
 'use strict';
 
-module.exports = (sequelize, DataTypes) => {
-  const beer = sequelize.define('Beer', {
-    beerId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    beerName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    beerLabel: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    beerAbv: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-    },
-    beerIbu: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-    },
-    beerDescription: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    beerStyle: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    breweryName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    breweryCountry: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    breweryLabel: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    breweryUrl: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-  });
+const mongoose = require('mongoose');
 
-  beer.associate = model => {
-    beer.belongsToMany(model.User, { through: 'UserBeers' });
-  };
-  return beer;
-};
+const beerSchema = new mongoose.Schema(
+  {
+    bid: {
+      type: Number,
+      required: [true, 'bid is refernce key and mandatory'],
+    },
+    beer_name: { type: String, required: [true, 'Beer name is required fied'] },
+    beer_label: { type: String, required: [true, 'Label is manadatory'] },
+    beer_abv: Number,
+    beer_ibu: Number,
+    beer_description: String,
+    created_at: { type: Date, default: Date.now(), select: false },
+    beer_style: String,
+    auth_rating: { type: Number, default: 0 },
+    in_production: Number,
+    brewery: { type: mongoose.Schema.ObjectId, ref: 'Brewery' },
+  },
+  { strict: false },
+);
+
+const Beer = mongoose.model('Beer', beerSchema);
+module.exports = Beer;

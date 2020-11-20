@@ -1,15 +1,11 @@
 'use strict';
 
 const router = require('express').Router();
-const user = require('./controllers/users');
+// const user = require('./controllers/beers');
 const beer = require('./controllers/beers');
 
-router.get('/beers', beer.getBeers);
-router.post('/beers', beer.postBeers);
-
-//create routes here.
-
-//const message = require 'controller'
-//router routes: router.get('/messages', message.getAll)
+router.get('/beers/search', beer.getBeersByName);
+router.get('/beers/:id', beer.getBeerById);
+router.get('/', (req, res) => res.status(200).send('OK'));
 
 module.exports = router;

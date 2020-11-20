@@ -8,7 +8,6 @@ import HomeScreen from './HomeScreen';
 import MyReviewsScreen from './MyReviewsScreen';
 import ProfileScreen from './ProfileScreen';
 
-
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 

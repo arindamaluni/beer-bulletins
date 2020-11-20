@@ -2,9 +2,9 @@ import React from 'react';
 import {
   ImageBackground,
   StyleSheet,
-
   Text,
-  TouchableOpacity, View
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 function WelcomeScreen({ navigation }) {
