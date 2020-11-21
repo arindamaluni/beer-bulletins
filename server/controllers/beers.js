@@ -36,16 +36,14 @@ exports.getBeersByName = async (req, res) => {
   const searchStr = req.query.str;
   const page = Number(req.query.page) || 0;
   const limit = Number(req.query.limit) || 50;
-  const rx = new RegExp(searchStr, 'ig');
+  // const rx = new RegExp(searchStr, 'ig');
   try {
     if (searchStr?.trim() === '') throw new Error('Empty Search String');
-    const beers = await Beer.find({ beer_name: rx })
-      .populate('brewery')
-      .limit(limit)
-      .skip(page * limit)
-      .sort({ beer_name: 'asc' });
-    if (beers.length < limit)
-      searchAndUpdate(searchStr, offset, limit);
+    let beers = await searchBeersInDb(searchStr, page, limit);
+    if (beers.length < limit) {
+      await searchAndUpdate(searchStr, page+1, limit);
+      beers = await searchBeersInDb(searchStr, page, limit);
+    }
       res
         .status(200)
         .json({ status: 'success', count: beers.length, data: { beers } });
@@ -54,6 +52,16 @@ exports.getBeersByName = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+const searchBeersInDb = async (searchStr, page, limit) => {
+  const rx = new RegExp(searchStr, 'ig');
+  const beers = await Beer.find({ beer_name: rx })
+      .populate('brewery')
+      .limit(limit)
+      .skip(page * limit)
+      .sort({ beer_name: 'asc' });
+  return beers;
+}
 
 exports.postBeers = async (req, res) => {
   try {

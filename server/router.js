@@ -1,7 +1,5 @@
 'use strict';
-
 const router = require('express').Router();
-// const user = require('./controllers/beers');
 const beer = require('./controllers/beers');
 
 router.get('/beers/search', beer.getBeersByName);
